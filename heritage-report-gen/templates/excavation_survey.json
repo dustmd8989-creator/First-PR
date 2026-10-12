@@ -1,0 +1,13 @@
+{
+  "id": "excavation_survey",
+  "title": "발굴(시굴)조사 보고서",
+  "description": "유적 발굴·시굴조사 보고서 (고고학 연구용)",
+  "sections": [
+    {"id": "overview",    "heading": "1. 조사 개요",        "prompt": "overview.md"},
+    {"id": "environment", "heading": "2. 위치와 환경",       "prompt": "environment.md"},
+    {"id": "history",     "heading": "3. 역사적 배경",       "prompt": "history.md"},
+    {"id": "stratigraphy","heading": "4. 층위 및 유구 현황",  "prompt": "stratigraphy.md"},
+    {"id": "artifacts",   "heading": "5. 출토유물",         "prompt": "artifacts.md"},
+    {"id": "evaluation",  "heading": "6. 종합 고찰",        "prompt": "evaluation.md"}
+  ]
+}
