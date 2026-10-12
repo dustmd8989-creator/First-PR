@@ -1,0 +1,13 @@
+{
+  "id": "architecture_survey",
+  "title": "전통건축물 조사보고서",
+  "description": "전통건축물 현황·실측조사 보고서 (건축사·보존 실무용)",
+  "sections": [
+    {"id": "overview",    "heading": "1. 조사 개요",        "prompt": "overview.md"},
+    {"id": "history",     "heading": "2. 연혁 및 문헌 검토", "prompt": "history.md"},
+    {"id": "layout",      "heading": "3. 배치 및 평면",      "prompt": "layout.md"},
+    {"id": "structure",   "heading": "4. 구조 및 가구 양식",  "prompt": "structure.md"},
+    {"id": "condition",   "heading": "5. 현황 및 손상 진단",  "prompt": "condition.md"},
+    {"id": "evaluation",  "heading": "6. 종합 의견",        "prompt": "evaluation.md"}
+  ]
+}
