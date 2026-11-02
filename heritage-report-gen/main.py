@@ -16,7 +16,10 @@ from pathlib import Path
 
 from docx import Document
 from docx.oxml.ns import qn
+from docx.enum.text import WD_COLOR_INDEX
 from docx.shared import Pt
+
+from verify import count_flags, split_flags, unsupported_numbers
 
 ROOT = Path(__file__).parent
 DEFAULT_MODEL = "claude-sonnet-5-5"
@@ -59,7 +62,11 @@ def add_body(doc: Document, text: str):
             continue
         bullet = re.match(r"^[-*]\s+(.*)", line)
         p = doc.add_paragraph(style="List Bullet" if bullet else None)
-        set_font(p.add_run(bullet.group(1) if bullet else line))
+        for piece, flagged in split_flags(bullet.group(1) if bullet else line):
+            run = p.add_run(piece)
+            set_font(run)
+            if flagged:
+                run.font.highlight_color = WD_COLOR_INDEX.YELLOW
 
 
 def main():
@@ -68,6 +75,7 @@ def main():
     ap.add_argument("-t", "--template", default="architecture_survey")
     ap.add_argument("-o", "--output", help="출력 .docx (기본: output/<입력명>_<템플릿>.docx)")
     ap.add_argument("--model", default=DEFAULT_MODEL)
+    ap.add_argument("--no-summary", action="store_true", help="보고서 끝의 검증 요약을 생략")
     ap.add_argument("--dry-run", action="store_true", help="API 호출 없이 구조·프롬프트만 점검")
     args = ap.parse_args()
 
@@ -91,12 +99,26 @@ def main():
     set_font(note.add_run("※ AI 생성 초안. 연대·치수·출전은 반드시 원자료와 대조 후 확정할 것. "
                           "[확인 필요] 표시는 조사자 보완 항목."), size=9)
 
+    summary = []
     for sec in tpl["sections"]:
         print(f"- {sec['heading']}", file=sys.stderr)
         user = build_prompt(sec, memo)
         text = "(dry-run) 프롬프트 길이 %d자" % len(user) if args.dry_run else generate(client, args.model, system, user)
         doc.add_heading(sec["heading"], level=1)
         add_body(doc, text)
+        extra = [] if args.dry_run else unsupported_numbers(memo, text)
+        flags = count_flags(text)
+        summary.append((sec["heading"], flags, extra))
+        if extra:
+            print(f"  ! 메모에 없는 숫자: {', '.join(extra)}", file=sys.stderr)
+
+    if not args.no_summary:
+        doc.add_heading("검증 요약 (자동)", level=1)
+        for heading, flags, extra in summary:
+            line = f"{heading}: [확인 필요] {flags}건"
+            if extra:
+                line += f" / 메모에 없는 숫자: {', '.join(extra)}"
+            add_body(doc, "- " + line)
 
     doc.save(out)
     print(f"저장: {out}")
