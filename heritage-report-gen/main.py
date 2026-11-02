@@ -31,15 +31,23 @@ def load_template(name: str) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def build_prompt(section: dict, memo: str) -> str:
+SYNTHESIS_IDS = {"evaluation"}  # 앞선 절의 결과를 참조해야 하는 종합 절
+MAX_TOKENS = 4000
+
+
+def build_prompt(section: dict, memo: str, prior: list | None = None) -> str:
     guide = (ROOT / "prompts" / section["prompt"]).read_text(encoding="utf-8")
-    return f"{guide}\n\n# 조사자 메모\n{memo}\n\n위 절의 본문만 작성하라."
+    prompt = f"{guide}\n\n# 조사자 메모\n{memo}"
+    if prior and section["id"] in SYNTHESIS_IDS:
+        done = "\n\n".join(f"## {h}\n{t}" for h, t in prior)
+        prompt += f"\n\n# 앞서 작성된 절 (이 내용과 메모에 있는 사실만 근거로 삼을 것)\n{done}"
+    return prompt + "\n\n위 절의 본문만 작성하라."
 
 
 def generate(client, model: str, system: str, user: str) -> str:
     resp = client.messages.create(
         model=model,
-        max_tokens=2000,
+        max_tokens=MAX_TOKENS,
         system=system,
         messages=[{"role": "user", "content": user}],
     )
@@ -91,10 +99,12 @@ def main():
     set_font(note.add_run("※ AI 생성 초안. 연대·치수·출전은 반드시 원자료와 대조 후 확정할 것. "
                           "[확인 필요] 표시는 조사자 보완 항목."), size=9)
 
+    prior = []
     for sec in tpl["sections"]:
         print(f"- {sec['heading']}", file=sys.stderr)
-        user = build_prompt(sec, memo)
+        user = build_prompt(sec, memo, prior)
         text = "(dry-run) 프롬프트 길이 %d자" % len(user) if args.dry_run else generate(client, args.model, system, user)
+        prior.append((sec["heading"], text))
         doc.add_heading(sec["heading"], level=1)
         add_body(doc, text)
 
