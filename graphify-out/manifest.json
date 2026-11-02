@@ -1,0 +1,152 @@
+{
+  ".claude/settings.json": {
+    "mtime": 1793639124.9258726,
+    "seen": 1793639133.9513173,
+    "ast_hash": "1b217789f00ac217bbce2ef76edb782a",
+    "semantic_hash": ""
+  },
+  ".mcp.json": {
+    "mtime": 1793639124.9276645,
+    "seen": 1793639133.9513252,
+    "ast_hash": "0c38dc6dcafbe7b715fe59b36cd98e16",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/main.py": {
+    "mtime": 1793639353.685115,
+    "seen": 1793640265.2428734,
+    "ast_hash": "d33e527c2b4d21fd6695b3ee3dd5061f",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/templates/architecture_survey.json": {
+    "mtime": 1793637448.013851,
+    "seen": 1793639133.9513311,
+    "ast_hash": "66ceaa2d1fff9c77f22c0acac237f1a1",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/templates/excavation_survey.json": {
+    "mtime": 1793637448.0140784,
+    "seen": 1793639133.9513326,
+    "ast_hash": "b74e2aa39bfaee80d1f68b4f6c442090",
+    "semantic_hash": ""
+  },
+  ".claude/CLAUDE.md": {
+    "mtime": 1793639124.9225004,
+    "seen": 1793639133.9513342,
+    "ast_hash": "9b31786b637be3c13978bec4c2330752",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1793639124.9276645,
+    "seen": 1793639133.9513354,
+    "ast_hash": "67d88e9d0760c3ba54c75dfd9551c1c5",
+    "semantic_hash": ""
+  },
+  "Contributors.md": {
+    "mtime": 1793637448.0099096,
+    "seen": 1793639133.9513364,
+    "ast_hash": "58331c6a3c3cab3869b5a490b37289ea",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1793637448.0099096,
+    "seen": 1793639133.9513376,
+    "ast_hash": "5a41df991b64a25c0771cf8b2ed394c2",
+    "semantic_hash": ""
+  },
+  "TOOLING.md": {
+    "mtime": 1793639124.9276645,
+    "seen": 1793639133.9513388,
+    "ast_hash": "da43d20b0ae11b7724578cab6de82016",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/input/sample_memo.md": {
+    "mtime": 1793637448.0129216,
+    "seen": 1793639133.9513402,
+    "ast_hash": "88a53e3288d8494de781d73766b34875",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/prompts/_system.md": {
+    "mtime": 1793637448.0129216,
+    "seen": 1793639133.9513416,
+    "ast_hash": "bbfc62179658d902ea206e5fbb9205d3",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/prompts/artifacts.md": {
+    "mtime": 1793637448.013851,
+    "seen": 1793639133.9513426,
+    "ast_hash": "b2408a88eadd14edcf334904f1853436",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/prompts/condition.md": {
+    "mtime": 1793637448.013851,
+    "seen": 1793639133.9513438,
+    "ast_hash": "dfb6487c025da987440a7729b2b703ff",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/prompts/environment.md": {
+    "mtime": 1793637448.013851,
+    "seen": 1793639133.9513447,
+    "ast_hash": "974c5ce2de3600c94be31e9a4934c626",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/prompts/evaluation.md": {
+    "mtime": 1793637448.013851,
+    "seen": 1793639133.9513457,
+    "ast_hash": "a5f9340e85c44712379d29ce4846b88d",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/prompts/history.md": {
+    "mtime": 1793637448.013851,
+    "seen": 1793639133.9513466,
+    "ast_hash": "b4445c91a11f37a0e0ff5d47ff4a55c1",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/prompts/layout.md": {
+    "mtime": 1793637448.013851,
+    "seen": 1793639133.951348,
+    "ast_hash": "e4bcab0e76fb31e4ec7268988923cb30",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/prompts/overview.md": {
+    "mtime": 1793637448.013851,
+    "seen": 1793639133.9513493,
+    "ast_hash": "dcf9840b7afe34fd4921b39add754483",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/prompts/stratigraphy.md": {
+    "mtime": 1793637448.013851,
+    "seen": 1793639133.9513505,
+    "ast_hash": "19db658c4c893af0538893f5cb4a0f64",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/prompts/structure.md": {
+    "mtime": 1793637448.013851,
+    "seen": 1793639133.9513514,
+    "ast_hash": "20c0215c7aff4b1a2c2a6c2bba5edebc",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/requirements.txt": {
+    "mtime": 1793637448.013851,
+    "seen": 1793639133.9513524,
+    "ast_hash": "8bcea41e0d9675aca47bdc12266e6842",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/tests/test_verify.py": {
+    "mtime": 1793639353.6887996,
+    "seen": 1793640265.2428787,
+    "ast_hash": "19acf3396174d8fb8ccbb5519025bce1",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/verify.py": {
+    "mtime": 1793639339.6383188,
+    "seen": 1793640265.2428803,
+    "ast_hash": "11787d04b995ee762b17aab6e0e17931",
+    "semantic_hash": ""
+  },
+  "heritage-report-gen/docs/SPEC-verification.md": {
+    "mtime": 1793639339.6368957,
+    "seen": 1793640265.2428887,
+    "ast_hash": "fea13d4fd9d900e76fbf75032a897247",
+    "semantic_hash": ""
+  }
+}
