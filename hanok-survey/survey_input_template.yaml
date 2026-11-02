@@ -1,0 +1,84 @@
+# 한옥 실측 입력 양식 (값을 채워 저장소에 올려 주세요)
+# 모르는 항목은 null 로 두면 추정 표시(점선, 주기)로 처리합니다.
+# 단위: mm (각도는 도, 물매는 분수 또는 치수 중 하나로 기재)
+
+project:
+  name:            # 건물 명칭
+  location:        # 소재지
+  survey_date:     # 실측 일자 (YYYY-MM-DD)
+  surveyor:        # 실측자
+  building_type:   # 민가 / 사랑채 / 정자 / 전각 등
+  north_angle_deg: # 정북 방향 (도면 위쪽 기준 각도)
+  scale:           # 예: 1/50
+  use_yeongjocheok: false   # 영조척 병기 여부
+
+plan:
+  front_bays_mm: []     # 정면 주심 간격 (예: [2700, 3300, 2700])
+  side_bays_mm: []      # 측면 주심 간격 (예: [2400, 2400])
+  diagonals_mm:         # 대각선 폐합 확인용 (선택)
+    d1:
+    d2:
+  column:
+    shape:              # 원기둥 / 각기둥
+    diameter_mm:        # 원기둥 직경 (각기둥은 width, depth)
+    width_mm:
+    depth_mm:
+    entasis:            # 배흘림 여부 (true/false/null)
+  footing:
+    type:               # 덤벙주초 / 다듬은 초석 등
+    height_mm:
+  platform:
+    height_mm:          # 기단 높이
+    extent: ""          # 기단 범위 설명 (툇마루, 쪽마루 포함 여부 등)
+  wall:
+    thickness_mm:
+    type:               # 토벽 / 판벽 / 회벽 등
+  rooms:                # 방, 마루, 부엌, 대청 구분
+    - name:
+      kind:             # 온돌방 / 마루 / 부엌 등
+      bay_range: ""     # 위치 (예: 정면 1-2칸, 측면 1칸)
+  openings:             # 문, 창호
+    - id:
+      kind:             # 여닫이 / 미닫이 / 창 등
+      position: ""      # 위치 설명 또는 좌표
+      width_mm:
+      height_mm:
+      sill_height_mm:
+
+structure:
+  frame_type:           # 3량가 / 5량가 / 7량가 / 익공 / 주심포 등
+  girders: []           # 보 단면 및 위치
+  purlins: []           # 도리 단면 및 위치
+  rafter:
+    spacing_mm:
+    section_mm:
+  brackets: ""          # 공포 형식 (있는 경우)
+
+roof:
+  form:                 # 맞배 / 팔작 / 우진각 / 모임
+  eave:                 # 홑처마 / 겹처마
+  eave_projection_mm:   # 처마 내밀기
+  slope:                # 물매 (분수 예: "5/10", 또는 각도 deg)
+  hip_rafter:           # 추녀 형식 (해당 시)
+  material:             # 기와 / 초가 등
+  ridge_height_mm:      # 용마루 높이 (지반 또는 기단 기준 명시)
+
+heights:
+  datum: ""             # 기준면 (예: 기단 상면, 지반)
+  column_height_mm:
+  eave_purlin_height_mm:
+  ridge_height_mm:
+  ceiling_height_mm:
+
+drawings_requested:     # 필요한 도면에 true
+  site_plan: false
+  plan: true
+  elevations: false
+  sections: false
+  roof_plan: false
+  framing: false
+  schedules: false
+
+section_cuts: []        # 단면 위치 (예: "종단 - 중앙 칸", "횡단 - 대청")
+
+notes: ""               # 특이사항, 추정 근거, 사진 번호 등
