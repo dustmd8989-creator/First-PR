@@ -41,11 +41,18 @@
         "source": "github",
         "repo": "anthropics/claude-plugins-official"
       }
+    },
+    "emok": {
+      "source": {
+        "source": "github",
+        "repo": "dustmd8989-creator/emok.re"
+      }
     }
   },
   "enabledPlugins": {
     "agent-skills@addy-agent-skills": true,
     "diagram-design@diagram-design": true,
-    "mattpocock-skills@claude-plugins-official": true
+    "mattpocock-skills@claude-plugins-official": true,
+    "emok-skills@emok": true
   }
 }
